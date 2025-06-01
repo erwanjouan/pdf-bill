@@ -1,0 +1,41 @@
+manDays: 17.5
+month: 5
+year: 2025
+jobStart: 23/04/2024
+jobEnd: 05/11/2025
+dailyFee: 550
+
+template:
+  reference: FACTURE N° %s
+  from:
+    name: Ma Structure
+    status: EURL au capital de 2000 €
+    address:
+      - 1 rue de Ma Rue
+      - CP Ma Ville
+    phone: "Tél: 07 12 34 56 78"
+    email: nom@ma_structure.fr
+    legal:
+      - MON_SIREN RCS MA_VILLE
+      - "N° SIRET: MON_SIRET"
+      - Tva Intracommunautaire FRX01234456789
+  to:
+    name: Mon Fournisseur
+    address:
+      - 1 rue de Leur Rue
+      - CP Leur Ville
+    website: www.monfournisseur.com
+    legal:
+      - "N°SIRET: LEUR_SIRET"
+      - "Tva Intracommunautaire FRY023456789"
+  jobTitle: Role dans la mission
+  jobContent: descriptif mission
+  vat: 20
+  bankInfo:
+    - "Condition de règlement : 60 jours"
+    - "Mode de règlement : par virement"
+    - "IBAN : MON_IBAN"
+    - "Code BIC: MON_BIC"
+  disclaimer: >
+    Taux des pénalités de retard de 10%, soit plus de 3 fois le taux légal en vigueur, 
+    exigibles en cas de non-paiement à la date de règlement + indemnité forfaitaire de 40€
