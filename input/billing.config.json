@@ -1,0 +1,47 @@
+{
+  "month": 5,
+  "year": 2025,
+  "manDays": 17.5,
+  "job": {
+    "start": "23/04/2024",
+    "end": "05/11/2025",
+    "title": "Role dans la mission",
+    "description": "descriptif mission",
+    "dailyFee": 550,
+    "vat": 20
+  },
+  "from": {
+    "name": "Ma Structure",
+    "status": "EURL au capital de 2000 €",
+    "address": [
+      "1 rue de Ma Rue",
+      "CP Ma Ville"
+    ],
+    "phone": "07 XX XX XX XX",
+    "email": "nom@ma.structure.fr",
+    "legal": [
+      "MON_SIREN RCS MA_VILLE",
+      "N° SIRET: MON_SIRET",
+      "Tva Intracommunautaire FRXXXXXXXXXXX"
+    ]
+  },
+  "to": {
+    "name": "Mon Porteur d'affaire",
+    "address": [
+      "1 rue de Leur Rue",
+      "CP Leur Ville"
+    ],
+    "website": "www.mon.porteur.d.affaire.com",
+    "legal": [
+      "N°SIRET: LEUR_SIRET",
+      "Tva Intracommunautaire FRYYYYYYYYYYY"
+    ]
+  },
+  "bankInfo": [
+    "Condition de règlement : 60 jours",
+    "Mode de règlement : par virement",
+    "IBAN : MON_IBAN",
+    "Code BIC: MON_BIC"
+  ],
+  "disclaimer": "Taux des pénalités de retard de 10%, soit plus de 3 fois le taux légal en vigueur, exigibles en cas de non-paiement à la date de règlement + indemnité forfaitaire de 40€"
+}

@@ -1,0 +1,27 @@
+referenceLabel: "FACTURE N° "
+date: "Date : "
+from: "De :"
+to: "A :"
+emailUrl: "mailto:%s"
+detailLabels:
+  ref: "Ref."
+  content: "Désignation de la prestation"
+  quantity: "Quantité"
+  unitPrice: "PU HT €"
+  jobLabels:
+    start: "Date de début : "
+    end: "Date de fin : "
+    content: "Description: "
+    periodLabels:
+      label: "Période: "
+      pattern: "MMMM yyyy"
+      locale: "fr"
+totalLabels:
+  net: "Total HT €"
+  vatPattern: "TVA (%,.0f %%) €"
+  gross: "Total TTC €"
+output:
+  folder: "output"
+  tmpFile: "output.pdf"
+  pattern: "Facture_%s_%s_%04d%02d.pdf"
+
