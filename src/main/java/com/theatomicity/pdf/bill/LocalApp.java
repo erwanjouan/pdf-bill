@@ -17,7 +17,7 @@ public class LocalApp {
         final Controller controller = context.getBean(Controller.class);
         // custom input can be passed as program arg
         final String inputJson = (args.length == 1) ? args[0] : DEFAULT_INPUT_CONFIG_JSON;
-        final Bill bill = controller.getBillFromJson(inputJson);
+        final Bill bill = controller.getBillFromJsonFile(inputJson);
         controller.render(bill);
         final File pdf = controller.getFile(bill);
         Runtime.getRuntime().exec("open " + pdf);

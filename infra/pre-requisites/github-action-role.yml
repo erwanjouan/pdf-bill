@@ -1,0 +1,61 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: Iam for github actions
+
+Parameters:
+  ProjectName:
+    Type: String
+
+Resources:
+  GithubActionsRole:
+    Properties:
+      RoleName: !Sub ${ProjectName}-github-actions-role
+      AssumeRolePolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          Effect: Allow
+          Principal:
+            Federated: !Sub arn:aws:iam::${AWS::AccountId}:oidc-provider/token.actions.githubusercontent.com
+          Action: sts:AssumeRoleWithWebIdentity # STS operation that is going to be performed
+          Condition:
+            # checks in the OIDC token
+            StringLike:
+              # Subject: all repositories in organization erwanjouan
+              'token.actions.githubusercontent.com:sub': [ 'repo:erwanjouan/*' ]
+              # Audience: the identity to whom we are authenticating
+            StringEqualsIgnoreCase:
+              'token.actions.githubusercontent.com:aud': sts.amazonaws.com
+      Policies:
+        # Prevents Github actions from assuming any other role
+        # https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services#example-iam-policy
+        - PolicyName: PreventAssumeRole
+          PolicyDocument:
+            Version: 2012-10-17
+            Statement:
+              Effect: Deny
+              Action: sts:AssumeRole
+              Resource: '*'
+        - PolicyName: PassRole
+          PolicyDocument:
+            Version: 2012-10-17
+            Statement:
+              Effect: Allow
+              Action: iam:PassRole
+              Resource: '*'
+        - PolicyName: AllowCloudFormation
+          PolicyDocument:
+            Version: 2012-10-17
+            Statement:
+              Effect: Allow
+              Action: cloudformation:*
+              Resource: '*'
+      # The actual permission
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/AmazonS3FullAccess
+        - arn:aws:iam::aws:policy/AWSLambda_FullAccess
+        - arn:aws:iam::aws:policy/AmazonSSMFullAccess
+        - arn:aws:iam::aws:policy/AmazonCognitoPowerUser
+    Type: AWS::IAM::Role
+
+Outputs:
+  RoleArn:
+    Value: !GetAtt GithubActionsRole.Arn

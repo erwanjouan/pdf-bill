@@ -105,10 +105,9 @@ public class Controller implements Section {
             throw new RuntimeException(e);
         }
     }
-
-    public Bill getBillFromJson(final String inputFile) {
+    
+    public Bill getBillFromJson(final String json) {
         try {
-            final String json = Files.readString(Paths.get(inputFile));
             final BillConfig billConfig = this.objectMapper.readValue(json, BillConfig.class);
             final Bill bill = new Bill();
             bill.setBillConfig(billConfig);
@@ -120,6 +119,15 @@ public class Controller implements Section {
             this.setMonthlyGrossFee(bill);
             this.setDestinationFile(bill, this.outputFolder);
             return bill;
+        } catch (final IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public Bill getBillFromJsonFile(final String inputFile) {
+        try {
+            final String json = Files.readString(Paths.get(inputFile));
+            return this.getBillFromJson(json);
         } catch (final IOException e) {
             throw new RuntimeException(e);
         }

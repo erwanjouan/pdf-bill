@@ -11,3 +11,5 @@ node_modules
 
 **/.cdk.staging
 **/cdk.out
+
+rest.http
