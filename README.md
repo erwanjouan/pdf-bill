@@ -14,3 +14,7 @@ With:
 [Output example is here](./output/Facture_MaStructure_MonPorteurd'affaire_202505.pdf)
 
 See [Makefile](./Makefile)
+
+## Github actions
+
+https://dev.to/koseimori/a-practical-guide-to-continuous-delivery-with-github-actions-and-aws-cdk-435k

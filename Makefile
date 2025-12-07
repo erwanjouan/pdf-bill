@@ -1,3 +1,5 @@
+PROJECT_NAME:=pdf-bill
+
 run:
 	mvn exec:java
 init:
@@ -13,3 +15,11 @@ deploy:
 
 destroy:
 	cd infra && cdk destroy --force
+
+prerequisites:
+	aws cloudformation deploy \
+			--stack-name $(PROJECT_NAME)-pre-requisites \
+			--capabilities CAPABILITY_NAMED_IAM \
+			--parameter-overrides \
+            				ProjectName=$(PROJECT_NAME) \
+			--template-file .github/pre-requisites/github-action-role.yml

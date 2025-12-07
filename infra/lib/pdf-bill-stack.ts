@@ -17,10 +17,10 @@ export class PdfBillStack extends cdk.Stack {
         const myLambda = new lambda.Function(this, 'myFunction', {
             code: lambda.Code.fromAsset('../target/pdf-bill-1.0-SNAPSHOT.jar'),
             runtime: lambda.Runtime.JAVA_17,
-            handler: 'com.theatomicity.pdf.bill.Handler',
+            handler: 'com.theatomicity.pdf.bill.LambdaHandler',
             timeout: Duration.minutes(15),
             memorySize: 4096,
-            snapStart: true,
+            //snapStart: true,
             environment: {
                 PDF_BILL_BUCKET: myBucket.bucketName,
                 SPRING_PROFILES_ACTIVE: 'awsLambda'

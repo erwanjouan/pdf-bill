@@ -1,0 +1,27 @@
+name: Deploy to AWS
+
+on:
+  workflow_dispatch:
+
+permissions:
+  id-token: write # unless AWS cannot read Github Jwt token
+  contents: read
+
+jobs:
+  aws:
+    environment: production # github environment
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          submodules: 'recursive'
+      - name: Configure AWS Credentials for prod account
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::${{ secrets.AWS_PROD_ACCOUNT_ID }}:role/the-atomicity-com-github-actions-role
+          aws-region: eu-west-1
+      - name: Cdk deploy
+        uses: scottbrenner/aws-cdk-action@v1.6.0
+        with:
+          args: deploy --require-approval never
