@@ -19,8 +19,10 @@ jobs:
         with:
           node-version: '20'
       - name: Install dependencies
+        working-directory: infra
         run: npm ci
       - name: Build
+        working-directory: infra
         run: npm run build
       - name: Configure AWS Credentials for prod account
         uses: aws-actions/configure-aws-credentials@v4
