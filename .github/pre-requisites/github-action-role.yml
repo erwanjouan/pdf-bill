@@ -34,6 +34,20 @@ Resources:
               Effect: Deny
               Action: sts:AssumeRole
               Resource: '*'
+        - PolicyName: PassRole
+          PolicyDocument:
+            Version: 2012-10-17
+            Statement:
+              Effect: Allow
+              Action: iam:PassRole
+              Resource: '*'
+        - PolicyName: AllowCloudFormation
+          PolicyDocument:
+            Version: 2012-10-17
+            Statement:
+              Effect: Allow
+              Action: cloudformation:*
+              Resource: '*'
       # The actual permission
       ManagedPolicyArns:
         - arn:aws:iam::aws:policy/AmazonS3FullAccess
