@@ -31,4 +31,4 @@ jobs:
           aws-region: eu-west-1
       - name: Cdk deploy
         working-directory: ./infra
-        run: npm cdk deploy --require-approval never
+        run: npx cdk deploy --require-approval never
