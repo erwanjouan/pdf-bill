@@ -19,7 +19,7 @@ jobs:
       - name: Configure AWS Credentials for prod account
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: arn:aws:iam::${{ secrets.AWS_PROD_ACCOUNT_ID }}:role/the-atomicity-com-github-actions-role
+          role-to-assume: arn:aws:iam::${{ secrets.AWS_PROD_ACCOUNT_ID }}:role/pdf-bill-github-actions-role
           aws-region: eu-west-1
       - name: Cdk deploy
         uses: scottbrenner/aws-cdk-action@v1.6.0
