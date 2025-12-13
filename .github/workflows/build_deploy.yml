@@ -39,4 +39,4 @@ jobs:
         run: mvn clean package -Plambda
       - name: Cdk deploy
         working-directory: ./infra
-        run: npx cdk deploy --require-approval never
+        run: npx cdk deploy --all --require-approval never

@@ -10,7 +10,7 @@ init:
 	npm install @types/aws-lambda @types/node
 
 deploy:
-	cd infra && cdk deploy \
+	cd infra && cdk deploy --all \
 		--require-approval never
 
 destroy:

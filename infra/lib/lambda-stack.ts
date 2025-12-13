@@ -3,10 +3,14 @@ import {Duration} from 'aws-cdk-lib';
 import {Construct} from 'constructs';
 import {Bucket} from "aws-cdk-lib/aws-s3";
 import {ManagedPolicy} from "aws-cdk-lib/aws-iam";
+import {LambdaIntegration} from "aws-cdk-lib/aws-apigateway";
 
 const lambda = require('aws-cdk-lib/aws-lambda');
 
 export class LambdaStack extends cdk.Stack {
+
+    public readonly lambdaIntegration: LambdaIntegration;
+
     constructor(scope: Construct, id: string, props?: cdk.StackProps) {
 
         super(scope, id, props);
@@ -27,5 +31,7 @@ export class LambdaStack extends cdk.Stack {
         })
 
         myLambda.role.addManagedPolicy(ManagedPolicy.fromAwsManagedPolicyName("AmazonS3FullAccess"))
+
+        this.lambdaIntegration = new LambdaIntegration(myLambda);
     }
 }
