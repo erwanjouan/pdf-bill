@@ -16,6 +16,7 @@ The `cdk.json` file tells the CDK Toolkit how to execute your app.
 ## API Usage
 
 ### Get OAuth Token
+
 ```bash
 curl -X POST https://<user-pool-domain>.auth.<region>.amazoncognito.com/oauth2/token \
   -H "Content-Type: application/x-www-form-urlencoded" \
@@ -23,6 +24,7 @@ curl -X POST https://<user-pool-domain>.auth.<region>.amazoncognito.com/oauth2/t
 ```
 
 ### Call PDF Bill API
+
 ```bash
 curl -X POST <api-url>/pdfbill \
   -H "Authorization: Bearer <access_token>" \
@@ -30,6 +32,8 @@ curl -X POST <api-url>/pdfbill \
   -d '{"your": "payload"}'
 ```
 
-## Reference 
+## Reference
 
 https://caesar-jd-bell.medium.com/unleash-the-power-of-aws-cdk-http-api-gateway-aws-lambda-and-sam-cli-1cf589c7e9e1
+
+https://medium.com/@vinjenks/aws-cognito-oauth-with-cdk-b4567d6c083d
