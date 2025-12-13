@@ -18,7 +18,12 @@ export class PdfBillStack extends cdk.Stack {
 
         // Cognito User Pool for OAuth2 Client Credentials
         const userPool = new UserPool(this, 'PdfBillUserPool', {
-            userPoolName: 'pdf-bill-user-pool'
+            userPoolName: 'pdf-bill-user-pool',
+            selfSignUpEnabled: false,
+            signInAliases: {
+                email: false,
+                username: true
+            }
         });
 
         const userPoolClient = new UserPoolClient(this, 'PdfBillUserPoolClient', {
