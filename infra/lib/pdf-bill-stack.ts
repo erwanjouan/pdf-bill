@@ -3,7 +3,7 @@ import {Duration} from 'aws-cdk-lib';
 import {Construct} from 'constructs';
 import {Bucket} from "aws-cdk-lib/aws-s3";
 import {ManagedPolicy} from "aws-cdk-lib/aws-iam";
-import {UserPool, UserPoolClient, OAuthScope} from "aws-cdk-lib/aws-cognito";
+import {OAuthScope, UserPool, UserPoolClient} from "aws-cdk-lib/aws-cognito";
 import {CognitoUserPoolsAuthorizer} from "aws-cdk-lib/aws-apigateway";
 
 const lambda = require('aws-cdk-lib/aws-lambda');
@@ -60,11 +60,6 @@ export class PdfBillStack extends cdk.Stack {
             authorizer
         });
 
-        new cdk.CfnOutput(this, 'myEndpointWithArgs', {
-            description: 'output URL',
-            value: `${endpoint.url}pdfbill`
-        });
-
         new cdk.CfnOutput(this, 'UserPoolId', {
             description: 'Cognito User Pool ID',
             value: userPool.userPoolId
@@ -73,6 +68,16 @@ export class PdfBillStack extends cdk.Stack {
         new cdk.CfnOutput(this, 'UserPoolClientId', {
             description: 'Cognito User Pool Client ID',
             value: userPoolClient.userPoolClientId
+        });
+
+        new cdk.CfnOutput(this, 'ApiUrl', {
+            description: 'API Gateway URL',
+            value: api.url
+        });
+
+        new cdk.CfnOutput(this, 'OAuthTokenUrl', {
+            description: 'OAuth Token URL',
+            value: `https://${userPool.userPoolProviderName}.auth.${this.region}.amazoncognito.com/oauth2/token`
         });
     }
 }

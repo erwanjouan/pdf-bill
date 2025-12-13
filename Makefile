@@ -22,4 +22,4 @@ prerequisites:
 			--capabilities CAPABILITY_NAMED_IAM \
 			--parameter-overrides \
             				ProjectName=$(PROJECT_NAME) \
-			--template-file .github/pre-requisites/github-action-role.yml
+			--template-file ./infra/pre-requisites/github-action-role.yml
