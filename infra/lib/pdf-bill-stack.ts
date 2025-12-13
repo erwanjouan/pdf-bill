@@ -27,8 +27,7 @@ export class PdfBillStack extends cdk.Stack {
             oAuth: {
                 flows: {
                     clientCredentials: true
-                },
-                scopes: [OAuthScope.custom('pdf-bill/generate')]
+                }
             }
         });
 
