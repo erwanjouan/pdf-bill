@@ -3,6 +3,7 @@
 (French) Pdf invoice generator for consulting fees, based on
 
 - Java 17
+- Spring
 - Maven
 - [Itext 9](https://itextpdf.com/)
 
