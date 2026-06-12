@@ -10,7 +10,7 @@ import java.io.IOException;
 
 import static com.theatomicity.pdf.bill.model.Constants.DEFAULT_INPUT_CONFIG_JSON;
 
-public class LocalApp {
+public class PdfBillApplication {
 
     public static void main(final String[] args) throws IOException {
         final AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppSpringConfig.class);

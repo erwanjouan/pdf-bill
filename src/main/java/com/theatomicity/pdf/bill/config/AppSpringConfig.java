@@ -41,7 +41,7 @@ public class AppSpringConfig {
     @Bean
     @Profile("!awsLambda")
     public Path outputPathLocal() {
-        return Paths.get("output");
+        return Paths.get("pdf-bill", "output");
     }
 
     @Bean
