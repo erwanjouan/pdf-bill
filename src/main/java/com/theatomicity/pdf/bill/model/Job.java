@@ -12,4 +12,5 @@ public class Job {
     private String description;
     private double dailyFee;
     private double vat;
+    private int command;
 }

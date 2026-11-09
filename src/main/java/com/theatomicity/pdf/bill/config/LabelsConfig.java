@@ -33,6 +33,7 @@ public class LabelsConfig {
         private String end;
         private String content;
         private PeriodLabels periodLabels;
+        private String command;
     }
 
     @Data

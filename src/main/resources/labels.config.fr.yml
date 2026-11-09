@@ -9,9 +9,10 @@ detailLabels:
   quantity: "Quantité"
   unitPrice: "PU HT €"
   jobLabels:
-    start: "Date de début : "
-    end: "Date de fin : "
+    start: "Date de début: "
+    end: "Date de fin: "
     content: "Description: "
+    command: "Numéro de commande: "
     periodLabels:
       label: "Période: "
       pattern: "MMMM yyyy"

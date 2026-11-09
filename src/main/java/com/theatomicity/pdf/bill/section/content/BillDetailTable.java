@@ -111,6 +111,12 @@ public class BillDetailTable implements Section {
         final String endLabel = this.labelsConfig.getDetailLabels().getJobLabels().getEnd();
         final String jobEnd = endLabel + end;
         pdfPCell.add(this.utils.getSmall(jobEnd));
+        //
+        final int command = bill.getBillConfig().getJob().getCommand();
+        final String commandLabel = this.labelsConfig.getDetailLabels().getJobLabels().getCommand();
+        final String commandParagraph = commandLabel + command;
+        pdfPCell.add(this.utils.getSmall(commandParagraph));
+        //
         pdfPCell.setPadding(5);
         return pdfPCell;
     }
